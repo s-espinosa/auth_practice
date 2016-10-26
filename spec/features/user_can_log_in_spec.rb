@@ -5,9 +5,11 @@ describe "User visits login page" do
     user = User.create(name: "Sal", email: "sal@sal.com", password: "pass")
 
     visit login_path
-    fill_in "session[email]", with: user.email
-    fill_in "session[password]", with: user.password
-    click_on "Login"
+    within("form") do
+      fill_in "email", with: user.email
+      fill_in "password", with: user.password
+      click_on "Login"
+    end
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Successfully logged in!")
