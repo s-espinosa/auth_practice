@@ -4,9 +4,11 @@ describe "Logged in user clicks 'Logout'" do
   it "they are successfully logged out" do
     user = User.create(name: "Sal", email: "sal@sal.com", password: "pass")
     visit login_path
-    fill_in "session[email]", with: user.email
-    fill_in "session[password]", with: user.password
-    click_on "Login"
+    within("form") do
+      fill_in "email", with: user.email
+      fill_in "password", with: user.password
+      click_on "Login"
+    end
 
     click_on "Logout"
 
