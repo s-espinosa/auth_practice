@@ -6,6 +6,7 @@ describe "User visits a new user page" do
     fill_in "user[name]", with: "Sal"
     fill_in "user[email]", with: "sal@sal.com"
     fill_in "user[password]", with: "pass"
+    fill_in "user[password_confirmation]", with: "pass"
     click_on "Create User"
 
     expect(current_path).to eq(user_path(User.last))
