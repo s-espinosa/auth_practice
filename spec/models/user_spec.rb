@@ -11,7 +11,7 @@ describe User do
                         )
 
       expect(user.role).to eq("admin")
-      expect(user.admin?).to be_true
+      expect(user.admin?).to be_truthy
     end
 
     it 'can return default' do
@@ -22,7 +22,7 @@ describe User do
                         )
 
       expect(user.role).to eq("default")
-      expect(user.default?).to be_true
+      expect(user.default?).to be_truthy
     end
   end
 end
