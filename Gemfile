@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :test do
   gem 'database_cleaner'
+  gem 'mocha'
 end
 
 group :development, :test do
