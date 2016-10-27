@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% flash.each do |key, value| %>
+      <div class="alert-<%= key %>">
+        <%= value %>
+      </div>
+    <% end %>
+    <% if logged_in? %>
+      <p><%= link_to "Logout", logout_path, method: :delete %></p>
+    <% else %>
+      <p><%= link_to "Login", login_path %></p>
+    <% end %>
+      <%= yield %>
   </body>
 </html>

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "User visits login page" do
   it "they can log in" do
-    user = User.create(name: "Sal", email: "sal@sal.com", password: "pass")
+    user = User.create(name: "Sal", email: "sal@sal.com", password: "pass", password_confirmation: "pass")
 
     visit login_path
     within("form") do
@@ -13,7 +13,7 @@ describe "User visits login page" do
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Successfully logged in!")
-    expect(page).to have_content("Welcome Sal!")
+    expect(page).to have_content("Welcome, Sal!")
     expect(page).to have_content("Logout")
   end
 end
