@@ -13,7 +13,7 @@ describe "User visits login page" do
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Successfully logged in!")
-    expect(page).to have_content("Welcome Sal!")
+    expect(page).to have_content("Welcome, Sal!")
     expect(page).to have_content("Logout")
   end
 end
